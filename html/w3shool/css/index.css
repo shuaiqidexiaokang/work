@@ -1,0 +1,144 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: PingFangSC-Regular, Verdana, Arial, '微软雅黑','宋体';
+	font-size: 14px;
+
+}
+#wrapper{
+	margin: 0 auto;
+    width: 1239px;
+}
+#navfirst{
+	height: 48px;
+    width: 1210px;
+    margin: 0 0 0 12px;
+    padding: 0;
+    border: 0;
+    background: #E8E7E3;
+}
+#navfirst ul#menu{
+	height: 48px;
+    width: 1210px;
+    background: transparent url(../img/bg.png) top left no-repeat;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#navsecond{
+	margin-left: 12px;
+	float: left;
+	width: 180px;
+}
+#course{
+	background: transparent url(../img/bg.png) 0 -700px no-repeat;
+	padding: 66px 0 10px 0;
+}
+#sidebar h2{
+	font-size: 14px;
+    font-family: 微软雅黑;
+    padding: 10px 0px 5px 10px;
+    margin:0;
+}
+#navsecond ul,#sidebar ul{
+    font-family: '微软雅黑';
+    padding: 0;
+    margin:0;
+}
+#navsecond li,#sidebar li{
+	list-style: none;
+}
+#navsecond li{
+	margin: 5px 0 0 0;
+	font-weight: bold;
+}
+#navsecond a,#sidebar a{
+    display: block;
+    padding: 5px 0 5px 15px;
+    font-size: 12px;
+    border-bottom: 0px solid #ddd;
+    text-decoration: none;
+}
+#navsecond a{
+	color: #000000;;
+}
+#sidebar a{
+	color: #900b09;
+}
+#navsecond a:hover{
+	text-decoration: none;
+    color: #ffffff	;
+    background: #aaaaaa;
+}
+#sidebar a:hover{
+	text-decoration: none;
+    color: #fff;
+    background: #BD2D30;
+}
+#maincontent{
+	float: left;
+	margin:0;
+	padding: 22px 0 0 0;
+	width:850px;
+}
+#maincontent div{
+	margin:0 0 0 20px;
+	padding: 30px 0;
+	border-bottom: 1px solid #aaa;
+}
+#maincontent h1{
+	margin: 0 0 0 25px;
+    font-size: 28px;
+    font-weight: 400;
+}		
+#maincontent p{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+}
+#w3shool p{
+	margin-left: 15px;
+}
+strong{
+	font-family: '微软雅黑';
+    font-size: 18px;
+    color: #3f3f3f;
+    font-weight: 800;
+}
+#sidebar{
+	width:180px;
+	float: left;
+}
+#tools{
+	background: transparent url(../img/bg.png) -400px -700px no-repeat;
+    padding: 66px 0 10px 0;
+}
+
+
+#footer{
+    clear: both;
+    padding-top: 16px;
+    width: 1210px;
+    line-height: 24px;
+    font-family: PingFangSC-Regular, 微软雅黑, Verdana, Arial, 宋体;
+    margin: 0px 0px 0px 12px;
+    border-top: 0px solid rgb(255, 255, 255);
+    background: url(../img/footer.png) left top repeat-x rgb(253, 252, 248);
+}
+#p1{
+    font-size: 12px;
+    color: #777777;
+    text-align: center;
+    background: transparent url(../img/alert.png) no-repeat;
+    background-position: 235px 2px;
+}
+#p2{
+    margin: 30px 0 30px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #777777;
+}
+#footer a{
+    text-decoration: none;
+    color: #777777;
+    background: transparent;
+}

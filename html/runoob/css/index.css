@@ -1,0 +1,60 @@
+body{
+	margin:0;
+}
+.container{
+    margin-top: 17px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.row{
+	width: 100%;
+    max-width: 1140px;
+    min-width: 755px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.logo{
+	width: 61.6%;
+	margin-right: 1%;
+	float: left;
+}
+.logo h1{
+	background-image: url(../img/runoob-logo.png);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    width: 258px;
+    height: 39px;
+    margin-top: 10px;
+    margin-left: 20px;
+    display: block;
+}
+.logo a{
+	width: 258px;
+    height: 39px;
+    display: block;
+}
+.search{
+	width: 36%;
+	margin-left: 0;
+	float: left;
+	    text-align: right;
+}
+.search form{
+    padding: 5px;
+    margin: 5px 0 0 0;
+}
+.search input{
+    height: 35px;
+    width: 94%;
+    padding: 0 3% 0 3%;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    color: #ccc;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+.search input:focus {
+    color: #333;
+    opacity: .8;
+}

@@ -1,0 +1,69 @@
+﻿git				查看系统是否安装Git
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+git init			把这个目录变成Git可以管理的仓库
+git add file 			把工作区文件添加到暂存区
+git commit -m "describe"	把暂存区文件提交到本地仓库
+git status			查看仓库当前的状态
+git diff file			查看file修改内容。
+git log				显示从最近到最远的提交日志
+git log --pretty=oneline	显示从最近到最远的提交日志
+git reset --hard HEAD^		回退到上一个版本
+git reset --hard commit id	指定回到未来的某个版本
+git reflog			查看记录的每一次命令
+git checkout -- file		用版本库里的版本替换工作区的版本
+git rm file			删除版本库中文件
+
+远程仓库
+git remote add origin git@github.com:michaelliao/learngit.git
+git push -u origin master	把本地库的所有内容推送到远程库,
+				第一次推送master分支的所有内容加 -u
+git clone git@github.com:shuaiqidexiaokang/gitskills.git
+				克隆远程仓库到本地
+
+分支管理
+git checkout -b dev		创建分支dev,换到dev分支
+				相当于一下两条命令
+				git branch dev
+				git checkout dev
+git branch dev			创建分支dev
+git checkout dev		切换到dev分支上
+git branch			查看当前分支
+git merge dev			合并分支dev到master分支上，Fast forward模式
+				这种模式下，删除分支后，会丢掉分支信息
+git branch -d dev		删除分支dev,如果分支未合并，不能删除
+git branch -D dev		删除为合并的分支dev	
+git log --graph --pretty=oneline --abbrev-commit
+				查看分支的合并情况
+git merge --no-ff -m "merge with no-ff" dev
+				合并分支dev到master分支上，--no-ff模式
+				Git就会在merge时生成一个新的commit，这样，
+				从分支历史上就可以看出分支信息
+git stash			不想提交，而是工作只进行到一半，还没法提交，可以使用stash
+				将工作现场“储藏”起来，等以后恢复现场后继续工作
+git stash list			查看“储藏” 的工作现场，
+git stash apply			恢复“储藏” 的工作现场，stash内容并不删除
+git stash pop			恢复的同时把stash内容也删了
+
+git remote			查看远程库信息
+git remote -v			查看远程库信息,更详细
+git push origin master		提交分支master到远程库上
+git branch --set-upstream-to=branch-name origin/branch-name
+				建立本地分支和远程分支的关联
+
+
+
+
+
+
+多人协作的工作模式通常是这样：
+
+①首先，可以试图用git push origin branch-name推送自己的修改；
+
+②如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+③如果合并有冲突，则解决冲突，并在本地提交；
+
+④没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+⑤如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
