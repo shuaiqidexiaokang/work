@@ -4,6 +4,9 @@ nav{
 #banner{
 	height: 700px;
 }
+.article #banner{
+	height:300px;
+}
 nav ul{
 	list-style:none;
 	margin:0;
@@ -32,6 +35,9 @@ nav ul li.active{
 	position: relative;
 	top: 160px;
 	color:#fff;
+}
+.article #banner .inner{
+	top:30px;
 }
 #banner .inner h1{
 	margin:0;
@@ -73,6 +79,9 @@ h1{
 	padding:12px;
 	border-top:2px solid #fff;
 	border-bottom:2px solid #fff;
+}
+.article h1{
+	border:none;
 }
 h2{
 	font-size: 30px;
@@ -236,14 +245,14 @@ ul.share-group{
 }
 
 #sidebar{
-	display: none;
-	width:300px;
+	width:350px;
 	background: #333;
 	position: fixed;
 	top: 0;
-	right:0;
+	right:-350px;
 	bottom:0;
 	padding: 20px 0;
+	transition: right 0.5s;
 }
 #sidebar ul{
 	list-style: none;
@@ -259,4 +268,31 @@ ul.share-group{
 }
 #sidebar ul a:hover{
 	background:#444;
+}
+.back-to-top{
+	display: none;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	border: 1px solid #888;
+	background:#3a4348;
+	padding: 15px;
+	color:#fff;
+}
+
+.article .content{
+	background:#fefefe;
+}
+.content_wrapper{
+	width:1080px;
+	margin:0 auto;
+}
+article{
+	line-height: 2;
+	padding:10px;
+}
+.article_info{
+	padding: 15px 0;
+	color: #888;
+	font-size: 14px;
 }
