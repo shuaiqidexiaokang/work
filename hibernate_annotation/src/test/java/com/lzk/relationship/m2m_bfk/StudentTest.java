@@ -1,4 +1,4 @@
-package com.lzk.relationship.m2m_fk;
+package com.lzk.relationship.m2m_bfk;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -42,15 +42,15 @@ public class StudentTest {
 
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.beginTransaction();
-        Student s1 = new Student("1",new Date(),"计算机是");
-        Student s2 = new Student("1",new Date(),"33");
-        Student s3 = new Student("1",new Date(),"44");
-        Student s4 = new Student("1",new Date(),"44");
+        Student s1 = new Student("男",new Date(),"计算机");
+        Student s2 = new Student("女",new Date(),"计算机");
+        Student s3 = new Student("男",new Date(),"电子");
+        Student s4 = new Student("女",new Date(),"电子");
 
-        Teacher t1 = new Teacher("T001","11");
-        Teacher t2 = new Teacher("T002","22");
-        Teacher t3 = new Teacher("T003","33");
-        Teacher t4 = new Teacher("T004","44");
+        Teacher t1 = new Teacher("T001","张老师");
+        Teacher t2 = new Teacher("T002","王老师");
+        Teacher t3 = new Teacher("T003","陈老师");
+        Teacher t4 = new Teacher("T004","林老师");
 
         Set<Teacher> set1 = new HashSet<>();
         set1.add(t1);
