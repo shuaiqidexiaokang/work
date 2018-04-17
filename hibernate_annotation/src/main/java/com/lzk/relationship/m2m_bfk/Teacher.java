@@ -14,7 +14,7 @@ public class Teacher {
     private String tid;
     private String tname;
 
-    @ManyToMany(mappedBy = "teachers")
+    @ManyToMany(mappedBy = "teachers",fetch = FetchType.EAGER)
     private Set<Student> students;
 
     public Teacher() {
@@ -23,5 +23,13 @@ public class Teacher {
     public Teacher(String tid,String tname) {
         this.tid = tid;
         this.tname = tname;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "tid='" + tid + '\'' +
+                ", tname='" + tname + '\'' +
+                '}';
     }
 }

@@ -13,7 +13,7 @@ public class Student {
     private Date birthday;
     private String major;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="student_teacher",
             joinColumns = {@JoinColumn(name = "sid")},
             inverseJoinColumns = {@JoinColumn(name = "tid")})
@@ -28,11 +28,54 @@ public class Student {
         this.major = major;
     }
 
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
     public Set<Teacher> getTeachers() {
         return teachers;
     }
 
     public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sid=" + sid +
+                ", gender='" + gender + '\'' +
+                ", birthday=" + birthday +
+                ", major='" + major + '\'' +
+                ", teachers=" + teachers +
+                '}';
     }
 }

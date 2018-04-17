@@ -1,5 +1,6 @@
 package com.lzk.relationship.m2m_bfk;
 
+import com.lzk.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -82,5 +83,75 @@ public class StudentTest {
         session.save(s4);
 
         transaction.commit();
+    }
+    @Test
+    public void testAddUser() {
+        //创建hibernate配置文件
+        Configuration configuration = new Configuration().configure();
+        //创建服务注册对象
+        ServiceRegistry serviceRegistry =
+                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        //创建SessionFactory
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = new User("admin","张三");
+        session.save(user);
+
+        transaction.commit();
+    }
+
+
+    @Test
+    public void testDeleteStudent() {
+        //创建hibernate配置文件
+        Configuration configuration = new Configuration().configure();
+        //创建服务注册对象
+        ServiceRegistry serviceRegistry =
+                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        //创建SessionFactory
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        Student student = (Student) session.get(Student.class,1);
+        session.delete(student);
+        transaction.commit();
+    }
+
+    @Test
+    public void testUpdateStudent() {
+        //创建hibernate配置文件
+        Configuration configuration = new Configuration().configure();
+        //创建服务注册对象
+        ServiceRegistry serviceRegistry =
+                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        //创建SessionFactory
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        Student student = (Student) session.get(Student.class,1);
+        student.setGender("女");
+        session.saveOrUpdate(student);
+        transaction.commit();
+    }
+
+    @Test
+    public void testGetStudent() {
+        //创建hibernate配置文件
+        Configuration configuration = new Configuration().configure();
+        //创建服务注册对象
+        ServiceRegistry serviceRegistry =
+                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        //创建SessionFactory
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        Student student = (Student) session.get(Student.class,1);
+        transaction.commit();
+        System.out.println(student);
     }
 }

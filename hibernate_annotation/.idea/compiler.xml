@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hibernate_annotation" />
         <module name="hibernate_clazz_attribute_annotation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hibernate_annotation" target="1.8" />
       <module name="hibernate_clazz_attribute_annotation" target="1.8" />
     </bytecodeTargetLevel>
   </component>

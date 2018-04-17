@@ -29,24 +29,21 @@ public class MainController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Result save(User user) {
+        System.out.println(user);//todo ???为什么接受不了参数
         int count = userService.save(user);
-        if (count > 0) {
-            return new Result(true, "添加成功");
-        }
-        return new Result(false, "添加失败");
+        System.out.println(count);
+        return null;
     }
 
     @RequestMapping(value = "/delete",
-            method = RequestMethod.POST,
-            produces = {"application/json;charset=UTF-8"})
+            method = RequestMethod.POST)
     @ResponseBody
     public void delete(@RequestParam("id") Integer id) {
         userService.delete(id);
     }
 
     @RequestMapping(value = "/saveOrUpdate",
-            method = RequestMethod.POST,
-            produces = {"application/json;charset=UTF-8"})
+            method = RequestMethod.POST)
     @ResponseBody
     public void saveOrUpdate(User user) {
         userService.saveOrUpdate(user);
@@ -55,22 +52,18 @@ public class MainController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public Result<User> get(@RequestParam("id") Integer id) {
+        System.out.println(id);
         User user = userService.get(id);
-        List<User> users = userService.findAll();
-        if (user!=null) {
-            return new Result<>(true, user, "查询成功");
-        }
-        return new Result<>(false, "查询失败");
+        System.out.println(user);//User{id=1, username='null', password='null', address='null', phone='null'}
+        return null;
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     @ResponseBody
     public List<User> findAll() {
-        return userService.findAll();
-        /*if (users != null && !users.isEmpty()) {
-            return new Result<>(true, users, "查询成功");
-        }
-        return new Result<>(false, "查询失败");*/
+        List<User> users = userService.findAll();
+        users.forEach(System.out::println);
+        return null;
 
     }
 }

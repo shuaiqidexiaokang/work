@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>取值</h1>
+你好，${username}!
+${nullVar!'我是空值'}
+${name}
+<#assign num = 100 />
+<h1>list取值</h1>
+<table>
+    <th>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>生日</td>
+        </tr>
+    </th>
+    <tbody>
+        <#list users as item>
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.birthday?string('yyyy-MM-dd')}</td>
+        </tr>
+        </#list>
+    </tbody>
+</table>
+</body>
+</html>

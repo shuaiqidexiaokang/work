@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cp</title>
+    <style>
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>取值</h1>
+    <ul>
+        <li>整数：<span>${intVar}</span></li>
+        <li>长整数：<span>${longVar}</span></li>
+        <li>字符串：<span>${strVar}</span></li>
+        <li>双精度：<span>${doubleVar}</span></li>
+        <li>布尔值：<span>${booleanVar}</span></li>
+        <li>日期：<span>${dateVar}</span></li>
+        <li>null：<span>${nullVar!'我是默认值'}</span></li>
+        <li>整数：<span>${intVar}</span></li>
+    </ul>
+    <h1>赋值&运算</h1>
+    <ul>
+        <#assign a=100>
+        <li>a = <span>${a}</span></li>
+        <li>a + 100 = <span>${a+100}</span></li>
+    </ul>
+    <h1>分装类型对象</h1>
+    <ul>
+        <li><span>${user.id}${user.name}${user.birthday?string('yyyy-MM-dd')}</span></li>
+    </ul>
+</body>
+</html>
