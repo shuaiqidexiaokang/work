@@ -46,6 +46,12 @@
         </property>
         <!-- 设置FreeMarker环境属性 -->
         <property name="freemarkerSettings" ref="propertySetting"></property>
+        <!--自定义指令-->
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="role" value-ref="roleDirectiveModel"></entry>
+            </map>
+        </property>
     </bean>
 
     <!--4:扫描web相关的controller-->
