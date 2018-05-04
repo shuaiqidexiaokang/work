@@ -5,9 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="springdao.xml"/>
-    <import resource="springredis.xml"/>
-
     <context:component-scan base-package="com.lzk"/>
 
     <bean class="com.lzk.realm.CustomRealm" id="realm">
@@ -27,14 +24,25 @@
         <property name="unauthorizedUrl" value="403.html"/>
         <property name="filterChainDefinitions">
             <value>
-                /login.html= anon
-                /subLogin= anon
-                /testPermission= perms["user:update","user:delete"]
-                /testPermission1= perms["user:select"]
+                /login.html = anon
+                /subLogin = anon
+                <!--/testRole = roles["admin"]-->
+                /testRole = roles["admin","admin1"]
+                /testRole1 = roles["admin1"]
+                /testRolesOr = rolesOr["admin","admin1"]
+                /testPermission = perms["user:update","user:delete"]
+                /testPermission1 = perms["user:select"]
                 /*= authc
             </value>
         </property>
+        <property name="filters">
+            <map>
+                <entry key="rolesOr" value-ref="rolesOrFilter"/>
+            </map>
+        </property>
     </bean>
+
+    <bean id="rolesOrFilter" class="com.lzk.filter.RolesOrFilter"/>
 
     <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="md5"/>
@@ -49,11 +57,11 @@
 
     <bean id="cacheManager" class="com.lzk.cache.RedisCacheManager"/>
 
-    <bean class="org.apache.shiro.web.mgt.CookieRememberMeManager" id="cookieRememberMeManager">
+    <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
         <property name="cookie" ref="cookie"/>
     </bean>
 
-    <bean class="org.apache.shiro.web.servlet.SimpleCookie" id="cookie">
+    <bean id="cookie" class="org.apache.shiro.web.servlet.SimpleCookie">
         <constructor-arg value="rememberMe"/>
         <property name="maxAge" value="6000000"/>
     </bean>

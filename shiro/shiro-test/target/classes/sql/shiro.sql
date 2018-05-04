@@ -76,7 +76,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Mark', '123456');
+INSERT INTO `users` VALUES ('1', 'Mark', '283538989cef48f3d7d8a1c1bdf2008f');
 
 -- ----------------------------
 -- Table structure for user_roles
