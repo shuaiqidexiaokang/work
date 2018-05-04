@@ -2,10 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
     <!--
         1.配置数据库相关参数-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -32,27 +38,32 @@
         <property name="maxIdleTime" value="20" />
     </bean>
 
-    <!--3.配置session工厂-->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.lzk.entity" />
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--hibernate根据实体自动生成数据库表-->
-                <prop key="hibernate.dialect">${hibernate.dialect}</prop>   <!--指定数据库方言-->
-                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>     <!--在控制台显示执行的数据库操作语句-->
-                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>     <!--在控制台显示执行的数据哭操作语句（格式）-->
-            </props>
+    <!--2.jpa工厂-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="true" />
+                <property name="database" value="MYSQL" />
+            </bean>
         </property>
+        <property name="persistenceUnitName" value="demo" />
     </bean>
 
-    <!--4.扫描entity、repository、service包下所有使用注解的类型-->
-    <context:component-scan base-package="com.lzk.entity"/>
-    <context:component-scan base-package="com.lzk.repository"/>
-    <context:component-scan base-package="com.lzk.service"/>
 
-    <!-- 5.事物管理器配置  -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+
+    <!-- 3.hibernate事物管理器配置  -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+    <!--4.启动注解方式配置事务-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!-- 5.配置Spring Data JPA扫描目录 -->
+    <jpa:repositories base-package="com.lzk.repository"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+
+    <!--6.扫描包下所有使用注解的类型-->
+    <context:component-scan base-package="com.lzk.*"/>
 </beans>

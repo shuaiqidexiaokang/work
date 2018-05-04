@@ -20,4 +20,37 @@ public class Result<T> {
         this.date = date;
         this.message = message;
     }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public T getDate() {
+        return date;
+    }
+
+    public void setDate(T date) {
+        this.date = date;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "success=" + success +
+                ", date=" + date +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

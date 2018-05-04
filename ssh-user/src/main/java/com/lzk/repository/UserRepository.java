@@ -1,6 +1,9 @@
 package com.lzk.repository;
 
 import com.lzk.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends DomainRepository<User,Integer> {
+import java.io.Serializable;
+
+public interface UserRepository extends JpaRepository<User, Serializable> {
 }
