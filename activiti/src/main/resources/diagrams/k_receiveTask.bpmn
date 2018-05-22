@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1526908751085" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1526908751085" name="" targetNamespace="http://www.activiti.org/testm1526908751085" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="receiveTask" isClosed="false" isExecutable="true" name="receiveTaskProcess" processType="None">
+    <startEvent id="startevent" name="start"/>
+    <receiveTask activiti:exclusive="true" id="receivetask1" name="汇总当日销售额"/>
+    <receiveTask activiti:exclusive="true" id="receivetask2" name="给老板发送短信"/>
+    <endEvent id="endevent" name="end"/>
+    <sequenceFlow id="_6" sourceRef="startevent" targetRef="receivetask1"/>
+    <sequenceFlow id="_7" sourceRef="receivetask1" targetRef="receivetask2"/>
+    <sequenceFlow id="_8" sourceRef="receivetask2" targetRef="endevent"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#FFFFFF;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="receiveTask">
+      <bpmndi:BPMNShape bpmnElement="startevent" id="Shape-startevent">
+        <dc:Bounds height="32.0" width="32.0" x="600.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="receivetask1" id="Shape-receivetask1">
+        <dc:Bounds height="55.0" width="85.0" x="575.0" y="175.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="receivetask2" id="Shape-receivetask2">
+        <dc:Bounds height="55.0" width="85.0" x="575.0" y="275.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent" id="Shape-endevent">
+        <dc:Bounds height="32.0" width="32.0" x="605.0" y="365.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6" sourceElement="startevent" targetElement="receivetask1">
+        <di:waypoint x="616.0" y="112.0"/>
+        <di:waypoint x="616.0" y="175.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="receivetask1" targetElement="receivetask2">
+        <di:waypoint x="617.5" y="230.0"/>
+        <di:waypoint x="617.5" y="275.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="receivetask2" targetElement="endevent">
+        <di:waypoint x="621.0" y="330.0"/>
+        <di:waypoint x="621.0" y="365.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
