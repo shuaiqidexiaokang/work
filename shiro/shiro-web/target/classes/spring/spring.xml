@@ -26,7 +26,7 @@
             <value>
                 /login.html = anon
                 /subLogin = anon
-                <!--/testRole = roles["admin"]-->
+                /testRole = roles["admin"]
                 /testRole = roles["admin","admin1"]
                 /testRole1 = roles["admin1"]
                 /testRolesOr = rolesOr["admin","admin1"]

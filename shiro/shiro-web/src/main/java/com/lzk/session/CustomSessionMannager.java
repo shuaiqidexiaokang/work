@@ -1,6 +1,5 @@
 package com.lzk.session;
 
-import com.sun.xml.internal.ws.developer.Serialization;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.SessionKey;

@@ -1,6 +1,5 @@
 package com.lzk.relationship.m2m_bfk;
 
-import com.lzk.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

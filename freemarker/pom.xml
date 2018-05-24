@@ -117,12 +117,6 @@
       <artifactId>c3p0</artifactId>
       <version>0.9.1.2</version>
     </dependency>
-    <!-- sqlServer 驱动-->
-    <dependency>
-      <groupId>com.microsoft.sqlserver</groupId>
-      <artifactId>sqljdbc4</artifactId>
-      <version>4.0</version>
-    </dependency>
     <!--mysql 驱动-->
     <dependency>
       <groupId>mysql</groupId>
