@@ -1,5 +1,4 @@
 package com.lzk.service;
 
-public interface PersonService {
-    Long savePerson();
+public interface PersonService extends BaseService {
 }
