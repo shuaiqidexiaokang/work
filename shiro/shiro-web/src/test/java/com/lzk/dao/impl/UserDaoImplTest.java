@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring.xml"})
+@ContextConfiguration({"classpath:spring/spring*.xml"})
 public class UserDaoImplTest {
 
     @Resource

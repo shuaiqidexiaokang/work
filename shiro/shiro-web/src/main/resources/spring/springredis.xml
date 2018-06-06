@@ -4,9 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg ref="jedisPoolConfig"/>
-        <constructor-arg value="127.0.0.1"/>
-        <constructor-arg value="6379"/>
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1" value="192.168.0.111"/>
+        <constructor-arg index="2" value="6379" type="int"/>
+        <constructor-arg index="3" value="200" type="int"/>
     </bean>
 
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>

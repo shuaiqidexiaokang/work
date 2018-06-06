@@ -24,6 +24,6 @@ public class CustomSessionMannager extends DefaultWebSessionManager {
         if (request != null && sessionId != null){
              request.setAttribute(sessionId.toString(),session);
         }
-        return super.retrieveSession(sessionKey);
+        return session;
     }
 }

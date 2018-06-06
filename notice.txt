@@ -1,0 +1,15 @@
+﻿问题:出现����的中文乱码
+解决方式：
+1、点击Edit Configurations...(Run左边小猫下拉框的位置)
+2、在VM options:添加"-Dfile.encoding=UTF-8"
+
+问题：redis.clients.jedis.exceptions.InvalidURIException: Cannot open Redis connection due invalid URI
+原因：使用spring初始化JedisPool时未指定结构方法参数的类型导致了，初始化对象时跑到了别的初始化话方法上
+如果constructor-arg 未指定type 初始化的时候JedisPool有两个相同参数个数的构造方法会选择错误，造成类似于这样的错误。
+解决方式：
+<bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy">
+    <constructor-arg index="0" ref="jedisPoolConfig" />
+    <constructor-arg index="1" value="192.168.12.123"   />
+    <constructor-arg index="2" value="6379" type="int" />
+    <constructor-arg index="3" value="2000" type="int" />
+</bean>
